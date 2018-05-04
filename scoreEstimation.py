@@ -342,15 +342,15 @@ class BatchMaker:
 if __name__ == "__main__":
     random.seed(345)
     if len(sys.argv) > 1:
-        # sgf = sys.argv[1]
-        # useNetwork([sgf])
+        sgf = sys.argv[1]
+        useNetwork([sgf])
         
-        BUFFER_SIZE = 2000
-        batchMaker = BatchMaker("test")
-        bx, by = batchMaker.nextBatch(32)
-        result = runNetwork(bx)
-        for i in range(by.shape[0]):
-            print("Network %f  ---  Expected %f" % (result[i], by[i]))
+        # BUFFER_SIZE = 2000
+        # batchMaker = BatchMaker("test")
+        # bx, by = batchMaker.nextBatch(32)
+        # result = runNetwork(bx)
+        # for i in range(by.shape[0]):
+            # print("Network %f  ---  Expected %f" % (result[i], by[i]))
     else:
-        batchMaker = BatchMaker("test")
+        batchMaker = BatchMaker("records")
         trainNetwork(batchMaker)
